@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="Organize seus estudos para o concurso de Fisioterapeuta de Jandira.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Aprova Jandira</title>
+</head>
+<body>
+<header class="top"><div class="brand"><span class="logo">AJ</span><div><strong>Aprova Jandira</strong><small>Seu plano de estudos, um dia de cada vez.</small></div></div><button id="installBtn" class="secondary" hidden>Instalar aplicativo</button></header>
+<nav class="tabs">
+  <button class="tab active" data-page="inicio">Início</button><button class="tab" data-page="estudos">Estudos</button><button class="tab" data-page="erros">Caderno de erros</button><button class="tab" data-page="materiais">Materiais</button><button class="tab" data-page="progresso">Progresso</button>
+</nav>
+<main>
+<section id="inicio" class="page active">
+  <div class="hero"><p class="eyebrow">CONCURSO • FISIOTERAPEUTA</p><h1>Seu próximo passo é a aprovação.</h1><p>Organize aulas, PDFs, questões e revisões em um só lugar.</p></div>
+  <div class="stats"><article><span id="sessionsCount">0</span><small>sessões concluídas</small></article><article><span id="answeredCount">0</span><small>questões respondidas</small></article><article><span id="accuracy">0%</span><small>aproveitamento</small></article><article><span id="errorsCount">0</span><small>erros para revisar</small></article></div>
+  <div class="panel"><h2>Como usar</h2><p>Em <b>Estudos</b>, cadastre uma sessão com resumo, videoaula, PDF e questões. Ao responder, o aplicativo corrige e registra seus erros automaticamente.</p><p>Seus dados ficam salvos neste navegador. Faça exportações/backup e configure a sincronização antes de trocar de aparelho.</p></div>
+</section>
+<section id="estudos" class="page">
+  <h1>Nova sessão de estudos</h1>
+  <form id="sessionForm" class="panel">
+    <label>Título<input name="title" required placeholder="Ex.: Princípios e diretrizes do SUS"></label>
+    <div class="two"><label>Data<input name="date" type="date"></label><label>Disciplinas<input name="subjects" placeholder="Português, SUS, Fisioterapia"></label></div>
+    <label>Resumo didático<textarea name="summary" rows="4" placeholder="Registre os principais conceitos..."></textarea></label>
+    <div class="two"><label>Link da videoaula<input name="videoUrl" type="url" placeholder="https://..."></label><label>Nome da videoaula<input name="videoLabel" placeholder="Aula recomendada"></label></div>
+    <div class="two"><label>Link do PDF<input name="pdfUrl" type="url" placeholder="https://..."></label><label>Nome do PDF<input name="pdfLabel" placeholder="Material de apoio"></label></div>
+    <label>Questões em formato JSON<textarea name="questions" rows="6" placeholder='[{"question":"Pergunta?","options":["A","B","C","D","E"],"answer":0,"explanation":"Explicação."}]'></textarea></label>
+    <button class="primary">Salvar sessão</button>
+  </form>
+  <div id="sessionList" class="stack"></div>
+</section>
+<section id="erros" class="page"><h1>Caderno de erros</h1><p class="muted">Questões erradas são adicionadas aqui automaticamente.</p><form id="errorForm" class="panel"><label>Assunto ou questão<input name="topic" required placeholder="Ex.: Crase"></label><label>O que preciso revisar?<textarea name="note" rows="2"></textarea></label><button class="primary">Adicionar anotação</button></form><div id="errorList" class="stack"></div></section>
+<section id="materiais" class="page"><h1>Biblioteca de materiais</h1><div id="materialsList" class="stack"></div></section>
+<section id="progresso" class="page"><h1>Seu progresso</h1><div class="panel"><div id="progressSummary"></div><div class="bar"><span id="progressBar"></span></div></div><div id="historyList" class="stack"></div></section>
+</main>
+<footer>Aprova Jandira • Projeto pessoal de estudos</footer>
+<script src="app.js"></script>
+</body></html>

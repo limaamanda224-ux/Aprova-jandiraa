@@ -1,33 +1,17 @@
 # Aprova Jandira — aplicativo PWA
 
-Este é um protótipo instalável como aplicativo (PWA). Ele permite cadastrar sessões, links de videoaulas e PDFs, questões com alternativas, corrigir respostas, registrar erros e acompanhar o progresso.
+## Semana 1 pré-carregada
+Esta versão inclui seis sessões iniciais (Português, SUS e Fisioterapia), seis resumos em PDF, links para videoaulas gratuitas e 30 questões autorais com gabarito comentado. As questões não são questões oficiais da VUNESP.
 
-## Publicar para instalar no Android e notebook
+## Publicar a atualização
+1. Extraia o ZIP recebido.
+2. No GitHub, abra o repositório Aprova-jandiraa.
+3. Envie/substitua os arquivos e a pasta `assets` pelos itens desta versão, mantendo a estrutura de pastas.
+4. Aguarde o Netlify concluir a nova publicação.
+5. No celular, feche o aplicativo instalado e abra o endereço do site no Chrome para atualizar o cache; se necessário, recarregue a página.
 
-1. Extraia o ZIP.
-2. No GitHub, abra o repositório `aprova-jandira` e envie **todos os arquivos e pastas que estão dentro** desta pasta (não apenas o ZIP).
-3. Publique o repositório usando um serviço de hospedagem estática com HTTPS, como Netlify ou Vercel.
-4. Abra a URL publicada no Chrome do Android e escolha “Instalar app” ou “Adicionar à tela inicial”. No notebook, use o ícone de instalação do Chrome/Edge.
+## Dados e sincronização
+As sessões, respostas e erros são salvos no armazenamento local do navegador. Não há sincronização automática entre celular e notebook nesta versão. Faça backup antes de limpar os dados do navegador.
 
-## Importante sobre os dados
-
-Os dados deste protótipo ficam no armazenamento local do navegador. Isso significa que o conteúdo do celular não aparece automaticamente no notebook. A sincronização entre dispositivos exige configurar um serviço de banco de dados e autenticação (por exemplo, Supabase), o que ainda não está implementado nesta versão.
-
-## Inserir questões
-
-No campo “Questões em formato JSON”, use uma lista como esta:
-
-```json
-[
-  {
-    "question": "Qual princípio do SUS garante acesso de todos aos serviços?",
-    "options": ["Universalidade", "Hierarquização", "Descentralização", "Regionalização", "Controle"],
-    "answer": 0,
-    "explanation": "A universalidade garante acesso às ações e serviços de saúde a todas as pessoas."
-  }
-]
-```
-
-`answer` é o índice da alternativa correta: 0 para A, 1 para B, até 4 para E.
-
-Este projeto é uma base inicial. O conteúdo diário não é importado automaticamente do ChatGPT; as sessões e materiais precisam ser cadastrados no aplicativo.
+## Questões
+As questões da Semana 1 são autorais, preparadas para treino de conteúdos básicos no estilo de cobrança de concursos. `answer` usa índice começando em zero: 0 para A, 1 para B, até 4 para E.
